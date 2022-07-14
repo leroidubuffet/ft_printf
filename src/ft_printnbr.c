@@ -6,7 +6,7 @@
 /*   By: ybolivar <ybolivar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:59:34 by ybolivar          #+#    #+#             */
-/*   Updated: 2022/07/06 14:37:25 by ybolivar         ###   ########.fr       */
+/*   Updated: 2022/07/14 19:11:59 by ybolivar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,16 @@ int	ft_putunint(unsigned int num)
 {
 	int	count;
 
-	count = 0;
 	if (num < 10)
 	{
-		num = num + '0';
-		count += write(1, &num, 1);
+		num += '0';
+		write(1, &num, 1);
 		return (1);
 	}
-	ft_putunint(num / 10);
-	num = num % 10 + '0';
-	count += write(1, &num, 1);
-	return (count);
+	count = ft_putunint(num / 10);
+	num = '0' + num % 10;
+	write(1, &num, 1);
+	return (count + 1);
 }
 
 int	ft_putnbr(int num)
