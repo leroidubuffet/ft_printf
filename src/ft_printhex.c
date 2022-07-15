@@ -6,42 +6,42 @@
 /*   By: ybolivar <ybolivar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:14:37 by ybolivar          #+#    #+#             */
-/*   Updated: 2022/06/30 12:39:19 by ybolivar         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:41:54 by ybolivar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static int	ft_hexlen(unsigned int num)
+static int	ft_hexlen(unsigned int n)
 {
 	int	count;
 
 	count = 0;
-	while (num != 0)
+	while (n != 0)
 	{
 		count++;
-		num = num / 16;
+		n = n / 16;
 	}
 	return (count);
 }
 
-static void	ft_printhex(unsigned int num, char c)
+static void	ft_printhex(unsigned int n, char c)
 {
-	if (num >= 16)
+	if (n >= 16)
 	{
-		ft_printhex(num / 16, c);
-		ft_printhex(num % 16, c);
+		ft_printhex(n / 16, c);
+		ft_printhex(n % 16, c);
 	}
 	else
 	{
-		if (num <= 9)
-			ft_putchar(num + '0');
+		if (n <= 9)
+			ft_putchar(n + '0');
 		else
 		{
 			if (c == 'x')
-				ft_putchar(num - 10 + 'a');
+				ft_putchar(n - 10 + 'a');
 			if (c == 'X')
-				ft_putchar(num - 10 + 'A');
+				ft_putchar(n - 10 + 'A');
 		}
 	}
 	return ;

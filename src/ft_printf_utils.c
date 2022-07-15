@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: airyago <airyago@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ybolivar <ybolivar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:59:34 by ybolivar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:18:43 by airyago          ###   ########.fr       */
+/*   Updated: 2022/07/15 17:35:53 by ybolivar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+
+int	ft_hexlen(unsigned int num)
+{
+	int	count;
+
+	count = 0;
+	while (num != 0)
+	{
+		count++;
+		num = num / 16;
+	}
+	return (count);
+}
 
 int	ft_putchar(int c)
 {
